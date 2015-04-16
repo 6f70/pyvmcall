@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # dbgsh for BitVisor written in Python 3
-import vmx
+import vmcall
 import sys
 import os
 import ctypes
@@ -9,8 +9,8 @@ import termios
 MINUS_ONE   = ctypes.c_ulong(-1).value
 
 def vmcall_dbgsh(ch):
-    func = vmx.vmcall(0, b'dbgsh')
-    return vmx.vmcall(func, ch)
+    func = vmcall.vmcall(0, b'dbgsh')
+    return vmcall.vmcall(func, ch)
 
 def dbgsh():
     vmcall_dbgsh(MINUS_ONE)
